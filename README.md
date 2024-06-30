@@ -14,19 +14,18 @@ The following prerequisites are needed to use the ocidenv
   7) ocidtab environment variable files , if not availble  please refer : https://github.com/abhilash-8/ocidenv    
   
 # Syntax for patching for GI Patching
+
+-- For Grid Patching
 $ ./ocidpatch_gi.sh DEV devdb01 orcl XX.XX.0.0.0 PRECHECK
+
 $ ./ocidpatch_gi.sh DEV devdb01 orcl XX.XX.0.0.0 APPLY
 
-For e.g. XX.XX.0.0.0 can be referenced as 19.23.0.0.0 for 19.23 GI Patch
-
-
-# Syntax for patching for GI Patching
-
+-- Database RU Patching 
 $ ./ocidpatch_ru.sh DEV devdb01 orcl XX.XX.0.0.0 PRECHECK
 
 $ ./ocidpatch_ru.sh DEV devdb01 orcl XX.XX.0.0.0 APPLY
 
-i.e. XX.XX.0.0.0 can be referenced as 19.23.0.0.0 for 19.23 RU Patch
+For e.g. XX.XX.0.0.0 can be referenced as 19.23.0.0.0 for 19.23 teh respective patches
 
 # NOTE
 The ocidpatchdb scripts comes with absolutely no gurantee , due diligence is needed for setting up the required ocidtab environment files.
