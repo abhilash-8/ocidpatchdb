@@ -1,5 +1,5 @@
 # ocidpatchdb
-This is a utility to automate OCI DB System GI and RU Patching 
+This is a utility to automate OCI DB System GI and RU Patching.
 The scripts will dynamically pickup the required OCID values for the GI/RU Patching
 
 # ocidpatchdb prerequisites
