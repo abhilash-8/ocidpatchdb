@@ -1,10 +1,6 @@
 # ocidpatchdb
 This is a utility to automate OCI DB System GI and RU Patching 
-
-ocidpatchdb_gi.sh is a script that will run PRECHECK/APPLY for GI Patching for OCI DB Systems
-ocidpatchdb_ru.sh is a script that will run PRECHECK/APPLY for RU Patching for OCI DB Systems
-
-The script will dynamically pickup the required OCID values for the GI/RU Patching
+The scripts will dynamically pickup the required OCID values for the GI/RU Patching
 
 # ocidpatchdb prerequisites
 The following prerequisites are needed to use the ocidenv
