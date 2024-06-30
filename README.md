@@ -2,21 +2,21 @@
 This is a utility to automate OCI DB System GI and RU Patching 
 
 ocidpatchdb_gi.sh is a script that will run PRECHECK/APPLY for GI Patching for OCI DB Systems
--- 
+The script will dynamically pickup the required OCID values for the GI Patching
 
 ocidpatchdb_ru.sh is a script that will run PRECHECK/APPLY for RU Patching for OCI DB Systems
+The script will dynamically pickup the required OCID values for the RU Patching
 
-
-
-# ocidenv prerequisites
+# ocidpatchdb prerequisites
 The following prerequisites are needed to use the ocidenv
-  1) OCI Config Path 
+  1) OCI DB System Hostname [ as seen in OCI Console ]
   2) OCI Profile 
   3) OCI Compartment 
   4) OCI VCN Name
   5) jq to be installed in Linux 
     $ sudo yum install jq
-  6) The OCI User in the profile will need to have the required IAM Policies for OCI Services to generate the OCID     
+  6) The OCI User in the profile will need to have the required IAM Policies for OCI Services to generate the OCID
+  7) ocidtab environment variable files     
   
 # ocidenv syntax to generate ocidtab 
 $ . ./ocidenv.sh <config_file_path> <oci_profile> <compartment_name> <vcn_name> && env | grep OCID
