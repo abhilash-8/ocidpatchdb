@@ -6,8 +6,8 @@ The scripts will dynamically pickup the required OCID values for the GI/RU Patch
 The following prerequisites are needed to use the ocidpatchdb
   1) OCI DB System Hostname [ as seen in OCI Web Console ]
   2) OCI DB Name            [ as seen in OCI Web Console ]
-  3) DB/GI 
-  4) OCI VCN Name
+  3) DB/GI Version needed to be applied
+  4) OCI VCN Name / relevant OCI CLI profile to be used
   5) jq to be installed in Linux 
     $ sudo yum install jq
   6) The OCI User in the profile will need to have the required IAM Policies for OCI Services to generate the OCID
