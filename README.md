@@ -21,7 +21,9 @@ For e.g. XX.XX.0.0.0 can be referenced as 19.23.0.0.0 for 19.23 GI Patch
 
 
 # Syntax for patching for GI Patching
+
 $ ./ocidpatch_ru.sh DEV devdb01 orcl XX.XX.0.0.0 PRECHECK
+
 $ ./ocidpatch_ru.sh DEV devdb01 orcl XX.XX.0.0.0 APPLY
 
 i.e. XX.XX.0.0.0 can be referenced as 19.23.0.0.0 for 19.23 RU Patch
