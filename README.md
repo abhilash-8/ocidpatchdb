@@ -16,11 +16,13 @@ The following prerequisites are needed to use the ocidenv
 # Syntax for patching for GI Patching
 
 -- For Grid Patching
+
 $ ./ocidpatch_gi.sh DEV devdb01 orcl XX.XX.0.0.0 PRECHECK
 
 $ ./ocidpatch_gi.sh DEV devdb01 orcl XX.XX.0.0.0 APPLY
 
 -- Database RU Patching 
+
 $ ./ocidpatch_ru.sh DEV devdb01 orcl XX.XX.0.0.0 PRECHECK
 
 $ ./ocidpatch_ru.sh DEV devdb01 orcl XX.XX.0.0.0 APPLY
