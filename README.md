@@ -3,7 +3,7 @@ This is a utility to automate OCI DB System GI and RU Patching.
 The scripts will dynamically pickup the required OCID values for the GI/RU Patching
 
 # ocidpatchdb prerequisites
-The following prerequisites are needed to use the ocidenv
+The following prerequisites are needed to use the ocidpatchdb
   1) OCI DB System Hostname [ as seen in OCI Web Console ]
   2) OCI DB Name            [ as seen in OCI Web Console ]
   3) DB/GI 
