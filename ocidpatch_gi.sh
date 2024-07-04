@@ -1,10 +1,10 @@
-!/bin/bash -l 
+#!/bin/bash -l 
 #############################################################################################################
-#Script Name    : ocidpatch_ru.sh
-#Description    : Runs PRECHECK / APPLY action for a specified RU Patch for a OCI DB System
-#Args           : ocidpatch_ru.sh <compartment_name> <hostname_in_oci> <dbname> <version_needed> <action>
-#               : ./ocidpatch_ru.sh DEV devdb01 orcl 19.XX.0.0.0 PRECHECK 
-#               : ./ocidpatch_ru.sh DEV devdb01 orcl 19.XX.0.0.0 APPLY 
+#Script Name    : ocidpatch_gi.sh
+#Description    : Runs PRECHECK / APPLY action for a specified GI Patch for a OCI DB System
+#Args           : ocidpatch_gi.sh <compartment_name> <hostname_in_oci> <dbname> <version_needed> <action>
+#               : ./ocidpatch_gi.sh DEV devdb01 orcl 19.XX.0.0.0 PRECHECK 
+#               : ./ocidpatch_gi.sh DEV devdb01 orcl 19.XX.0.0.0 APPLY 
 #Author         : Abhilash Kumar Bhattaram
 #Email          : abhilash8@gmail.com     
 #GitHb          : https://github.com/abhilash-8/ocidpatchdb
@@ -14,7 +14,7 @@ HOSTNAME_IN_OCI=${2}
 DBNAME_IN_OCI=${3}
 VERSION_TO_APPLY=${4}
 ACTION=${5}
-call_ru()
+call_gi()
 {
         source ~/.$DBENV-ocidtab
         echo "### DB System Arguments Provided"
@@ -37,29 +37,29 @@ call_ru()
         echo "### OCID for Database to Patch/PreRequisites"     
         export DB_OCID=$(oci db database list --compartment-id $COMP_OCID --profile SHAI-PROFILE --query "data[?contains(\"db-name\",'$DBNAME_IN_OCI')]" |  jq -r '.[]."id"');echo $DB_OCID
         echo " "
-        echo "### OCID for Databse RU Patches which are available"
-        oci db patch list by-database --database-id $DB_OCID --profile SHAI-PROFILE --all #--output table
+        echo "### OCID for Databse GI Patches which are available"
+        oci db patch list by-db-system --db-system-id $DB_SYSTEM_OCID --profile SHAI-PROFILE --all #--output table
         echo " "
-        echo "### OCID for DB RU Patch"
-        export PATCH_OCID=$(oci db patch list by-database --database-id $DB_OCID --profile SHAI-PROFILE --all --query "data[?contains(\"version\",'$VERSION_TO_APPLY')]" |  jq -r '.[]."id"');echo $PATCH_OCID
+        echo "### OCID for GI Patch"
+        export PATCH_OCID=$(oci db patch list by-db-system --db-system-id $DB_SYSTEM_OCID --profile SHAI-PROFILE --all --query "data[?contains(\"version\",'$VERSION_TO_APPLY')]" |  jq -r '.[]."id"');echo $PATCH_OCID
         echo " "
-        echo "### DB RU Apply Action " $ACTION
-        oci db database patch --database-id $DB_OCID --patch-id $PATCH_OCID --patch-action $ACTION  --profile SHAI-PROFILE
+        echo "### GI Apply Action " $ACTION
+        oci db system  patch --db-system-id $DB_SYSTEM_OCID --patch-action $ACTION --patch-id $PATCH_OCID --profile SHAI-PROFILE 
 }
 ## Main
 if [ -z "$5" ]
 then
         echo " "        
-        echo "#################################################################################################### "       
-        echo "Usage is ocidpatch_ru.sh <compartment_name> <hostname_in_oci> <dbname> <version_needed> <action>"
+        echo "######################################################################################### "       
+        echo "Usage is ocidpatch_gi.sh <compartment_name> <hostname_in_oci> <dbname> <action>"
         echo " "        
-        echo "E.g.  # sh ocidpatch_ru.sh DEV devdb01 orcl 19.XX.0.0.0 PRECHECK "
-        echo "E.g.  # sh ocidpatch_ru.sh DEV devdb01 orcl 19.XX.0.0.0 APPLY "
+        echo "E.g.  # sh ocidpatch_gi.sh DEV devdb01 orcl 19.XX.0.0.0 PRECHECK "
+        echo "E.g.  # sh ocidpatch_gi.sh DEV devdb01 orcl 19.XX.0.0.0 APPLY "
         echo " "        
         echo "Pre-requisites : ocidtab environment variable files to be available  "    
         echo "               : Refer https://github.com/abhilash-8/ocidenv to generate ocidtab file  "  
-        echo "#################################################################################################### "       
-        echo " " 
+        echo "######################################################################################### "       
+        echo " "        
 else
-        call_ru
+        call_gi
 fi
