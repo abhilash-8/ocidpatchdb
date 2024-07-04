@@ -3,8 +3,8 @@
 #Script Name    : ocidpatch_ru.sh
 #Description    : Runs PRECHECK / APPLY action for a specified RU Patch for a OCI DB System
 #Args           : ocidpatch_ru.sh <compartment_name> <hostname_in_oci> <dbname> <version_needed> <action>
-#               : ./ocidpatch_ru.sh DEV devdb01 orcl 19.XX.0.0.0 PRECHECK 
-#               : ./ocidpatch_ru.sh DEV devdb01 orcl 19.XX.0.0.0 APPLY 
+#               : sh ocidpatch_ru.sh DEV devdb01 orcl 19.XX.0.0.0 PRECHECK 
+#               : sh ocidpatch_ru.sh DEV devdb01 orcl 19.XX.0.0.0 APPLY 
 #Author         : Abhilash Kumar Bhattaram
 #Email          : abhilash8@gmail.com     
 #GitHb          : https://github.com/abhilash-8/ocidpatchdb
